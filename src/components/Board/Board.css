@@ -1,0 +1,7 @@
+.board {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  height: calc(100vh - 200px);
+  min-height: 500px;
+}

@@ -1,0 +1,56 @@
+.task {
+  background-color: white;
+  border-radius: 4px;
+  padding: 12px;
+  margin-bottom: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  cursor: grab;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.task:hover {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.task:active {
+  cursor: grabbing;
+}
+
+.task-content {
+  flex-grow: 1;
+  padding-right: 20px;
+}
+
+.task-number {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #4a90e2;
+  margin-bottom: 5px;
+  display: inline-block;
+  padding: 2px 6px;
+  background-color: rgba(74, 144, 226, 0.1);
+  border-radius: 3px;
+}
+
+.task-content p {
+  margin: 0;
+  word-break: break-word;
+}
+
+.delete-button {
+  background-color: transparent;
+  border: none;
+  color: #999;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0 5px;
+}
+
+.delete-button:hover {
+  color: #ff3b30;
+}

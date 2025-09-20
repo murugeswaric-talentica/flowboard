@@ -1,0 +1,61 @@
+{
+  "coverage": {
+    "statements": "100%",
+    "branches": "96.66%",
+    "functions": "100%",
+    "lines": "100%",
+    "timestamp": "2025-09-14T12:00:00Z",
+    "test_suites_passed": 8,
+    "test_suites_total": 8,
+    "tests_passed": 35,
+    "tests_total": 35
+  },
+  "test_summary": {
+    "components": {
+      "Task": {
+        "tests": 4,
+        "passed": 4,
+        "coverage": "100%"
+      },
+      "TaskForm": {
+        "tests": 6,
+        "passed": 6,
+        "coverage": "100%"
+      }
+    },
+    "redux": {
+      "taskActions": {
+        "tests": 3,
+        "passed": 3,
+        "coverage": "100%"
+      },
+      "taskReducer": {
+        "tests": 5,
+        "passed": 5,
+        "coverage": "100%"
+      },
+      "filterActions": {
+        "tests": 1,
+        "passed": 1,
+        "coverage": "100%"
+      },
+      "filterReducer": {
+        "tests": 3,
+        "passed": 3,
+        "coverage": "100%"
+      }
+    },
+    "utils": {
+      "localStorage": {
+        "tests": 6,
+        "passed": 6,
+        "coverage": "100%"
+      },
+      "dragDrop": {
+        "tests": 7,
+        "passed": 7,
+        "coverage": "100%"
+      }
+    }
+  }
+}

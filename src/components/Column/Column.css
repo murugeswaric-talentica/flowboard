@@ -1,0 +1,59 @@
+.column {
+  flex: 1;
+  background-color: #ebecf0;
+  border-radius: 8px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: calc(33.33% - 14px);
+  min-width: calc(33.33% - 14px);
+}
+
+.column-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  color: white;
+}
+
+.column-header h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: white;
+  margin: 0;
+}
+
+.task-count {
+  background-color: rgba(255, 255, 255, 0.25);
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  color: white;
+}
+
+/* Column header colors */
+.column-header-red {
+  background-color: #e74c3c;
+}
+
+.column-header-yellow {
+  background-color: #f39c12;
+}
+
+.column-header-green {
+  background-color: #27ae60;
+}
+
+.tasks-container {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding-right: 5px;
+}
+
+.column.dragging-active {
+  border: 2px dashed #4a90e2;
+}
