@@ -130,7 +130,6 @@ Key functions:
 - `handleDragStart`: Initializes drag operation and captures necessary data
 - `handleDrag`: Updates element position during drag
 - `handleDragEnd`: Finalizes drag operation and updates task position
-- `findClosestColumn`: Determines which column the task is being dragged over
 
 #### Local Storage (`src/utils/localStorage.js`)
 

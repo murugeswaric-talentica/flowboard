@@ -38,32 +38,6 @@ export const handleDrag = (event, dragData) => {
 };
 
 /**
- * Finds the closest column to drop the task
- * @param {Event} event - The mousemove or mouseup event
- * @param {Array} columns - DOM elements of the columns
- * @returns {Element|null} - The closest column or null if none found
- */
-export const findClosestColumn = (event, columns) => {
-  let closestColumn = null;
-  let closestDistance = Infinity;
-  
-  columns.forEach(column => {
-    const rect = column.getBoundingClientRect();
-    
-    // Check if mouse is within the horizontal bounds of the column
-    if (event.clientX >= rect.left && event.clientX <= rect.right) {
-      const distance = Math.abs(event.clientY - (rect.top + rect.height / 2));
-      if (distance < closestDistance) {
-        closestDistance = distance;
-        closestColumn = column;
-      }
-    }
-  });
-  
-  return closestColumn;
-};
-
-/**
  * Handles the end of drag operation
  * @param {Object} dragData - Data from dragStart
  */

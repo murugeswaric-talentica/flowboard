@@ -235,12 +235,7 @@ A custom drag-and-drop solution was implemented without external libraries to me
    - Adjusts element position using fixed positioning and transforms
    - Tracks offset to ensure smooth dragging experience
 
-3. **Column Detection**:
-   - `findClosestColumn`: Determines which column the task is being dragged over
-   - Uses geometric calculations to find the nearest column
-   - Ensures accurate placement when dropping tasks
-
-4. **Visual Feedback**:
+3. **Visual Feedback**:
    - Applies CSS classes during drag operations
    - Updates element styling for drag appearance
    - Maintains original position information for reverting if needed

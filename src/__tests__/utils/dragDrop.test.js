@@ -1,4 +1,4 @@
-import { handleDragStart, handleDrag, handleDragEnd, findClosestColumn } from '../../utils/dragDrop';
+import { handleDragStart, handleDrag, handleDragEnd } from '../../utils/dragDrop';
 
 describe('Drag and Drop Utilities', () => {
   let mockElement;
@@ -113,58 +113,6 @@ describe('Drag and Drop Utilities', () => {
       handleDragEnd(dragData);
       
       expect(initialParent.appendChild).not.toHaveBeenCalled();
-    });
-  });
-  
-  describe('findClosestColumn', () => {
-    it('should find the closest column to the mouse position', () => {
-      const columns = [
-        {
-          getBoundingClientRect: () => ({
-            left: 0,
-            right: 100,
-            top: 0,
-            height: 300
-          })
-        },
-        {
-          getBoundingClientRect: () => ({
-            left: 100,
-            right: 200,
-            top: 0,
-            height: 300
-          })
-        }
-      ];
-      
-      const event = {
-        clientX: 150, // Inside the second column
-        clientY: 50
-      };
-      
-      const result = findClosestColumn(event, columns);
-      expect(result).toBe(columns[1]);
-    });
-    
-    it('should return null if no column is found', () => {
-      const columns = [
-        {
-          getBoundingClientRect: () => ({
-            left: 0,
-            right: 100,
-            top: 0,
-            height: 300
-          })
-        }
-      ];
-      
-      const event = {
-        clientX: 150, // Outside any column
-        clientY: 50
-      };
-      
-      const result = findClosestColumn(event, columns);
-      expect(result).toBeNull();
     });
   });
 });
