@@ -56,22 +56,24 @@ The FlowBoard application follows a clear component hierarchy to manage UI compl
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │                           App                               │
-└─────────────────────────────────┬───────────────────────────┘
-                                  │
-                                  ▼
-┌─────────────────────────────────────────────────────────────┐
-│                          Board                              │
-└───┬──────────────────────────┬──────────────────────────┬───┘
-    │                          │                          │
-    ▼                          ▼                          ▼
-┌─────────┐                ┌─────────┐                ┌─────────┐
-│TaskForm │                │ Column  │                │ Column  │
-└─────────┘                └────┬────┘                └────┬────┘
-                                │                          │
-                                ▼                          ▼
-                          ┌──────────┐                ┌──────────┐
-                          │   Task   │                │   Task   │
-                          └──────────┘                └──────────┘
+└───┬──────────────────────┬───────────────────────┬──────────┘
+    │                      │                       │
+    ▼                      ▼                       ▼
+┌─────────┐        ┌───────────────┐         ┌──────────┐
+│FilterPanel│       │     Board      │         │ TaskForm │
+└─────────┘        └──┬─────┬─────┬─┘         └──────────┘
+                      │     │     │
+                      ▼     ▼     ▼
+                  ┌───────┐ ┌───────┐ ┌───────┐
+                  │Column │ │Column │ │Column │
+                  │To Do  │ │  In   │ │ Done  │
+                  │       │ │Progress│ │       │
+                  └───┬───┘ └───┬───┘ └───┬───┘
+                      │         │         │
+                      ▼         ▼         ▼
+                  ┌───────┐ ┌───────┐ ┌───────┐
+                  │ Task  │ │ Task  │ │ Task  │
+                  └───────┘ └───────┘ └───────┘
 ```
 
 ### Component Responsibilities
@@ -80,12 +82,14 @@ The FlowBoard application follows a clear component hierarchy to manage UI compl
    - Root component
    - Wraps the application with the Redux Provider
    - Sets up global application context
+   - Contains header with FilterPanel and TaskForm
+   - Renders Board component in the main content area
 
-2. **Board Component**:
-   - Container for the entire Kanban board
-   - Renders TaskForm in the header and three Column components
-   - Manages column headers and overall layout
-   - Handles global drag-and-drop state
+2. **FilterPanel Component**:
+   - Handles task filtering functionality
+   - Provides UI for selecting different filters (All, To Do, In Progress, Done)
+   - Dispatches filter actions to Redux store
+   - Displays active filter state
 
 3. **TaskForm Component**:
    - Positioned in the application header
@@ -93,13 +97,20 @@ The FlowBoard application follows a clear component hierarchy to manage UI compl
    - Dispatches actions to create tasks
    - Manages form validation and state
 
-4. **Column Component**:
+4. **Board Component**:
+   - Container for the Kanban board columns
+   - Renders three Column components
+   - Manages column layout and spacing
+   - Handles global drag-and-drop state
+   - Receives filtered tasks from Redux store
+
+5. **Column Component**:
    - Renders a column with a color-coded header (red, yellow, green)
    - Contains and displays filtered tasks
    - Handles drop events for task movement between columns
    - Manages visual feedback during drag operations
 
-5. **Task Component**:
+6. **Task Component**:
    - Displays individual task information (title and task number)
    - Handles drag initiation
    - Contains delete functionality
@@ -110,6 +121,10 @@ The FlowBoard application follows a clear component hierarchy to manage UI compl
 - **Top-down Props Flow**: Data and callbacks flow down from parent to child components
 - **Bottom-up Action Flow**: User interactions in child components trigger actions that flow up to Redux
 - **Cross-component Communication**: Handled through the Redux store rather than direct component-to-component communication
+- **Parallel Components Communication**: FilterPanel, TaskForm, and Board components communicate through the Redux store
+  - FilterPanel updates the filter state in Redux
+  - TaskForm dispatches actions to create new tasks
+  - Board component receives filtered tasks based on the current filter state
 
 ## State Management Approach
 
